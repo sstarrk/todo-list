@@ -1,4 +1,5 @@
 import "./styles.css";
+import "./DOMstaff";
 
 export class Card {
     constructor(title, description, dueDate, priority) {

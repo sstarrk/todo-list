@@ -164,7 +164,7 @@ fieldset {
   backdrop-filter: blur(10px);
 }
 
-.container {
+.task-container {
   height: 550px;
   width: 500px;
   backdrop-filter: blur(30px);
@@ -188,6 +188,7 @@ form {
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
 }
 
 #add-task {
