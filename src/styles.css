@@ -196,3 +196,7 @@ form {
   border: 1px solid black;
   cursor: pointer;
 }
+
+.newtask {
+  cursor: pointer;
+}

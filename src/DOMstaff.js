@@ -1,10 +1,18 @@
 import { Card, Project } from "./index";
 
 function closeTaskModal() {
-    const taskModal= document.querySelector(".task-modal");
-    taskModal.style.display = "none";
+    document.querySelector(".task-modal").style.display = "none";
 };
+
+function showTaskModal() {
+    document.querySelector(".task-modal").style.display = "flex";
+
+}
 
 document.querySelector("#close").addEventListener("click", () => {
     closeTaskModal();
 });
+
+document.querySelector(".newtask").addEventListener("click", () => {
+    showTaskModal();
+})
