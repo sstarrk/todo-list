@@ -65,5 +65,40 @@
             </div>
         </div>
     </main>
+    <div class="task-modal">
+        <div class="container">
+            <img src="./images/close-circle-svgrepo-com.svg" alt="close" id="close">
+            <form>
+                <div class="task-name-container">
+                    <label for="task-name">Name of the task:</label>
+                    <input type="text" id="task-name" name="task-name">
+                </div>
+                <div class="task-description-container">
+                    <label for="task-description">Description:</label>
+                    <input type="text" id="task-description" name="task-description">
+                </div>
+                <fieldset>
+                    <legend>Choose priority of the task</legend>
+                    <div>
+                        <input type="radio" id="high" name="priority" value="High"/>
+                        <label for="high">High</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="medium" name="priority" value="Medium"/>
+                        <label for="medium">Medium</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="low" name="priority" value="Low"/>
+                        <label for="low">Low</label>
+                    </div>
+                </fieldset>
+                <div class="due-date-container">
+                    <label for="due-date">Choose due date:</label>
+                    <input type="date" id="due-date" name="due-date" value="due-date">
+                </div>
+                <button type="button" id="add-task">Add Task</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

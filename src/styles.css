@@ -142,3 +142,56 @@ svg {
   justify-content: end;
   gap: 5px;
 }
+
+form>div {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-around;
+}
+
+.task-modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(10px);
+}
+
+.container {
+  height: 550px;
+  width: 500px;
+  backdrop-filter: blur(30px);
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right,#0189cd, #e37006, #cf8acb, #6400b6) 1;
+  padding: 50px;
+  padding-top: 70px;
+  background-image: url(./images/background.png);
+  position: relative;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#close {
+  max-height: 50px;
+  max-width: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#add-task {
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
