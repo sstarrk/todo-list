@@ -7,7 +7,7 @@ function closeTaskModal() {
 function showTaskModal() {
     document.querySelector(".task-modal").style.display = "flex";
 
-}
+};
 
 document.querySelector("#close").addEventListener("click", () => {
     closeTaskModal();
@@ -15,4 +15,4 @@ document.querySelector("#close").addEventListener("click", () => {
 
 document.querySelector(".newtask").addEventListener("click", () => {
     showTaskModal();
-})
+});
