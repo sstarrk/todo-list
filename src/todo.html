@@ -71,11 +71,11 @@
             <form>
                 <div class="task-name-container">
                     <label for="task-name">Name of the task:</label>
-                    <input type="text" id="task-name" name="task-name" placeholder="Kill someone...">
+                    <input type="text" id="task-name" name="task-name" placeholder="Kill someone..." required>
                 </div>
                 <div class="task-description-container">
                     <label for="task-description">Description:</label>
-                    <input type="text" id="task-description" name="task-description" placeholder="Some description that someone cares...">
+                    <input type="text" id="task-description" name="task-description" placeholder="Some description that someone cares..." required>
                 </div>
                 <fieldset>
                     <legend>Choose priority of the task</legend>
@@ -94,7 +94,7 @@
                 </fieldset>
                 <div class="due-date-container">
                     <label for="due-date">Choose due date:</label>
-                    <input type="date" id="due-date" name="due-date" value="due-date">
+                    <input type="date" id="due-date" name="due-date" value="due-date" required>
                 </div>
                 <button type="button" id="add-task">Add Task</button>
             </form>
