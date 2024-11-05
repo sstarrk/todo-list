@@ -1,12 +1,12 @@
 import "./styles.css";
 import "./DOMstaff";
 
-const allCards = [];
+export const allCards = [];
 const allProjects = [];
 
 export class Card {
-    constructor(title, description, dueDate, priority) {
-        this.title = title;
+    constructor(name, description, dueDate, priority) {
+        this.name = name;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
