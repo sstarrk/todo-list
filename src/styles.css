@@ -165,7 +165,7 @@ fieldset {
 }
 
 .task-container {
-  height: 550px;
+  height: 650px;
   width: 500px;
   backdrop-filter: blur(30px);
   border: 1px solid transparent;
@@ -213,7 +213,7 @@ button {
 
 .project-modal {
   position: absolute;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   height: 100%;
