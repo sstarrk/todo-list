@@ -1,4 +1,4 @@
-import { Card, Project } from "./index";
+import { Card, Project, newCard } from "./index";
 
 function closeTaskModal() {
     document.querySelector(".task-modal").style.display = "none";
@@ -33,3 +33,24 @@ document.querySelector("#close-pr").addEventListener("click", () => {
 document.querySelector(".newproject").addEventListener("click", () => {
     showProjectModal();
 });
+
+function clearInputs() {
+    document.querySelector("#task-name").value = "";
+    document.querySelector("#task-description").value = "";
+    document.querySelector("#due-date").value = "";
+    document.querySelector('input[name="priority"]').value = ""
+    document.querySelector("#project-name").value = "";
+    document.querySelector("#project-description").value = "";
+}
+
+// Clicking button to submit new task
+const addTaskBtn = document.querySelector("#add-task");
+addTaskBtn.addEventListener("click", () => {
+    const taskName = document.querySelector("#task-name").value;
+    const taskDescription = document.querySelector("#task-description").value;
+    const taskDueDate = document.querySelector("#due-date").value;
+    const taskPriority = document.querySelector('input[name="priority"]:checked')?.value;
+    newCard(taskName, taskDescription, taskDueDate, taskPriority);
+    closeTaskModal();
+    clearInputs();
+})
