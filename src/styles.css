@@ -101,7 +101,7 @@ p {
   padding: 3%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fit, 215px);
   gap: 3%;
 }
 
@@ -191,12 +191,45 @@ form {
   cursor: pointer;
 }
 
-#add-task {
+#close-pr {
+  max-height: 50px;
+  max-width: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+button {
   border-radius: 10px;
   border: 1px solid black;
   cursor: pointer;
 }
 
-.newtask {
+.newtask,
+.newproject {
   cursor: pointer;
+}
+
+.project-modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(10px);
+}
+
+.project-container {
+  height: 350px;
+  width: 500px;
+  backdrop-filter: blur(30px);
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right,#0189cd, #e37006, #cf8acb, #6400b6) 1;
+  padding: 50px;
+  padding-top: 70px;
+  background-image: url(./images/background.png);
+  position: relative;
 }

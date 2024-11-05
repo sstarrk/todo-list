@@ -9,10 +9,27 @@ function showTaskModal() {
 
 };
 
+function closeProjectModal() {
+    document.querySelector(".project-modal").style.display = "none";
+};
+
+function showProjectModal() {
+    document.querySelector(".project-modal").style.display = "flex";
+
+};
+
 document.querySelector("#close").addEventListener("click", () => {
     closeTaskModal();
 });
 
 document.querySelector(".newtask").addEventListener("click", () => {
     showTaskModal();
+});
+
+document.querySelector("#close-pr").addEventListener("click", () => {
+    closeProjectModal();
+});
+
+document.querySelector(".newproject").addEventListener("click", () => {
+    showProjectModal();
 });
