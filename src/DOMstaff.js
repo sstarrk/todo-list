@@ -1,4 +1,4 @@
-import { Card, Project, newCard } from "./index";
+import { newProject, newCard } from "./index";
 
 function closeTaskModal() {
     document.querySelector(".task-modal").style.display = "none";
@@ -54,3 +54,12 @@ addTaskBtn.addEventListener("click", () => {
     closeTaskModal();
     clearInputs();
 })
+
+const addProjectBtn = document.querySelector("#add-project");
+addProjectBtn.addEventListener("click", () => {
+    const projectName = document.querySelector("#project-name").value;
+    const projectDescription = document.querySelector("#project-description").value;
+    newProject(projectName, projectDescription);
+    closeProjectModal();
+    clearInputs();
+});
