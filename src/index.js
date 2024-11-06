@@ -2,7 +2,7 @@ import "./styles.css";
 import "./DOMstaff";
 
 export const allCards = [];
-const allProjects = [];
+export const allProjects = [];
 
 export class Card {
     constructor(name, description, dueDate, priority) {
