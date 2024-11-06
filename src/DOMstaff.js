@@ -27,16 +27,18 @@ const clickNewTaskListener = () => {
         showTaskModal();
     });
 };
-
 clickNewTaskListener();
 
 document.querySelector("#close-pr").addEventListener("click", () => {
     closeProjectModal();
 });
 
-document.querySelector(".newproject").addEventListener("click", () => {
-    showProjectModal();
-});
+const clickNewProjectListener = () => {
+    document.querySelector(".newproject").addEventListener("click", () => {
+        showProjectModal();
+    });
+}
+clickNewProjectListener();
 
 function clearInputs() {
     document.querySelector("#task-name").value = "";
@@ -72,6 +74,8 @@ addProjectBtn.addEventListener("click", () => {
     closeProjectModal();
     clearInputs();
     updateProjects();
+    displayLeftProjects(allProjects);
+    clickNewProjectListener();
 });
 
 function showCards(cards) {
@@ -145,22 +149,52 @@ function displayLeftTasks(tasks) {
     const taskList = document.querySelector(".tasks");
     if(tasks.length == 0) {
         taskList.innerHTML = `<div class="header-text">Tasks</div>
-                                
+                              <div class="latest-text">Latest tasks</div>
                               <p class="newtask">+ New Task</p>`;
     } else if (tasks.length == 1) {
         taskList.innerHTML = `<div class="header-text">Tasks</div>
+                              <div class="latest-text">Latest tasks</div>
                               <p>${tasks[tasks.length - 1].name}</p>
                               <p class="newtask">+ New Task</p>`;
     } else if (tasks.length == 2) {
         taskList.innerHTML = `<div class="header-text">Tasks</div>
+                              <div class="latest-text">Latest tasks</div>
                               <p>${tasks[tasks.length - 1].name}</p>
                               <p>${tasks[tasks.length - 2].name}</p>
                               <p class="newtask">+ New Task</p>`;
     } else {
         taskList.innerHTML = `<div class="header-text">Tasks</div>
+                              <div class="latest-text">Latest tasks</div>
                               <p>${tasks[tasks.length - 1].name}</p>
                               <p>${tasks[tasks.length - 2].name}</p>
                               <p>${tasks[tasks.length - 3].name}</p>
                               <p class="newtask">+ New Task</p>`;
     }
 };
+
+function displayLeftProjects(projects) {
+    const projectList = document.querySelector(".projects");
+    if(projects.length == 0) {
+        projectList.innerHTML = `<div class="header-text">Projects</div>
+                                 <div class="latest-text">Latest projects</div>
+                                 <p class="newproject">+ New Project</p>`;
+    } else if(projects.length == 1) {
+        projectList.innerHTML = `<div class="header-text">Projects</div>
+                                 <div class="latest-text">Latest projects</div>
+                                 <p>${projects[projects.length - 1].name}</p>
+                                 <p class="newproject">+ New Project</p>`;
+    } else if(projects.length == 2) {
+        projectList.innerHTML = `<div class="header-text">Projects</div>
+                                 <div class="latest-text">Latest projects</div>
+                                 <p>${projects[projects.length - 1].name}</p>
+                                 <p>${projects[projects.length - 2].name}</p>
+                                 <p class="newproject">+ New Project</p>`;
+    } else {
+        projectList.innerHTML = `<div class="header-text">Projects</div>
+                                 <div class="latest-text">Latest projects</div>
+                                 <p>${projects[projects.length - 1].name}</p>
+                                 <p>${projects[projects.length - 2].name}</p>
+                                 <p>${projects[projects.length - 3].name}</p>
+                                 <p class="newproject">+ New Project</p>`;
+    }
+}
