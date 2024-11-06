@@ -91,7 +91,7 @@ p {
   display: flex;
   align-items: center;
   width: 100%;
-  padding-left: 10%;
+  justify-content: center;
   border: 1px solid transparent;
   border-image: linear-gradient(to right,#0189cd, #e37006, #cf8acb, #6400b6) 1;
   border-radius: 10px;
