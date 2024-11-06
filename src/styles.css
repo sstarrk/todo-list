@@ -76,7 +76,7 @@ main {
   color: #4B0082;
   font-size: 2rem;
   font-weight: 800;
-  padding-left: 10%;
+  text-align: center;
 }
 
 .tasks,
@@ -136,6 +136,12 @@ svg {
 svg {
   max-height: 30px;
   max-width: 30px;
+}
+
+.latest-text {
+  color: #4B0082;
+  font-weight: 800;
+  text-align: center;
 }
 
 .imgs {

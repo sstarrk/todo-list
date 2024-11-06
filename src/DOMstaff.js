@@ -22,9 +22,13 @@ document.querySelector("#close").addEventListener("click", () => {
     closeTaskModal();
 });
 
-document.querySelector(".newtask").addEventListener("click", () => {
-    showTaskModal();
-});
+const clickNewTaskListener = () => {
+    document.querySelector(".newtask").addEventListener("click", () => {
+        showTaskModal();
+    });
+};
+
+clickNewTaskListener();
 
 document.querySelector("#close-pr").addEventListener("click", () => {
     closeProjectModal();
@@ -54,6 +58,9 @@ addTaskBtn.addEventListener("click", () => {
     closeTaskModal();
     clearInputs();
     showCards(allCards);
+    displayLeftTasks(allCards);
+    clickNewTaskListener();
+    console.log(allCards);
 })
 
 // Clicking button to submit new project
@@ -132,4 +139,28 @@ function updateProjects() {
         option.textContent = `${pr.name}`;
         projects.appendChild(option);
     });
+};
+
+function displayLeftTasks(tasks) {
+    const taskList = document.querySelector(".tasks");
+    if(tasks.length == 0) {
+        taskList.innerHTML = `<div class="header-text">Tasks</div>
+                                
+                              <p class="newtask">+ New Task</p>`;
+    } else if (tasks.length == 1) {
+        taskList.innerHTML = `<div class="header-text">Tasks</div>
+                              <p>${tasks[tasks.length - 1].name}</p>
+                              <p class="newtask">+ New Task</p>`;
+    } else if (tasks.length == 2) {
+        taskList.innerHTML = `<div class="header-text">Tasks</div>
+                              <p>${tasks[tasks.length - 1].name}</p>
+                              <p>${tasks[tasks.length - 2].name}</p>
+                              <p class="newtask">+ New Task</p>`;
+    } else {
+        taskList.innerHTML = `<div class="header-text">Tasks</div>
+                              <p>${tasks[tasks.length - 1].name}</p>
+                              <p>${tasks[tasks.length - 2].name}</p>
+                              <p>${tasks[tasks.length - 3].name}</p>
+                              <p class="newtask">+ New Task</p>`;
+    }
 };

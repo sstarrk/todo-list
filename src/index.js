@@ -24,7 +24,6 @@ export class Project {
 export function newCard(taskName, taskDescription, taskDueDate, taskPriority) {
     const newCard = new Card(taskName, taskDescription, taskDueDate, taskPriority);
     allCards.push(newCard);
-    console.log(allCards);
 };
 
 export function newProject(projectName, projectDescription) {
