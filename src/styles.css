@@ -79,6 +79,11 @@ main {
   text-align: center;
 }
 
+#left-tasks,
+#left-projects {
+  cursor: pointer;
+}
+
 .tasks,
 .projects {
   display: flex;

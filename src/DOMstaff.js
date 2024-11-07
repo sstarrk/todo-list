@@ -63,6 +63,8 @@ addTaskBtn.addEventListener("click", () => {
     displayLeftTasks(allCards);
     clickNewTaskListener();
     console.log(allCards);
+    clickableAllTasks();
+    clickableAllProjects();
 })
 
 // Clicking button to submit new project
@@ -76,7 +78,91 @@ addProjectBtn.addEventListener("click", () => {
     updateProjects();
     displayLeftProjects(allProjects);
     clickNewProjectListener();
+    clickableAllTasks();
+    clickableAllProjects();
 });
+
+function updateProjects() {
+    const projects = document.querySelector("#pr-select");
+    projects.innerHTML = "";
+    allProjects.forEach(pr => {
+        const option = document.createElement("option");
+        option.setAttribute("value", `${pr.name}`);
+        option.textContent = `${pr.name}`;
+        projects.appendChild(option);
+    });
+};
+
+function displayLeftTasks(tasks) {
+    const taskList = document.querySelector(".tasks");
+    if(tasks.length == 0) {
+        taskList.innerHTML = `<div class="header-text" id="left-tasks">Tasks</div>
+                              <div class="latest-text">Latest tasks</div>
+                              <p class="newtask">+ New Task</p>`;
+    } else if (tasks.length == 1) {
+        taskList.innerHTML = `<div class="header-text" id="left-tasks">Tasks</div>
+                              <div class="latest-text">Latest tasks</div>
+                              <p>${tasks[tasks.length - 1].name}</p>
+                              <p class="newtask">+ New Task</p>`;
+    } else if (tasks.length == 2) {
+        taskList.innerHTML = `<div class="header-text" id="left-tasks">Tasks</div>
+                              <div class="latest-text">Latest tasks</div>
+                              <p>${tasks[tasks.length - 1].name}</p>
+                              <p>${tasks[tasks.length - 2].name}</p>
+                              <p class="newtask">+ New Task</p>`;
+    } else {
+        taskList.innerHTML = `<div class="header-text" id="left-tasks">Tasks</div>
+                              <div class="latest-text">Latest tasks</div>
+                              <p>${tasks[tasks.length - 1].name}</p>
+                              <p>${tasks[tasks.length - 2].name}</p>
+                              <p>${tasks[tasks.length - 3].name}</p>
+                              <p class="newtask">+ New Task</p>`;
+    }
+};
+
+function displayLeftProjects(projects) {
+    const projectList = document.querySelector(".projects");
+    if(projects.length == 0) {
+        projectList.innerHTML = `<div class="header-text" id="left-projects">Projects</div>
+                                 <div class="latest-text">Latest projects</div>
+                                 <p class="newproject">+ New Project</p>`;
+    } else if(projects.length == 1) {
+        projectList.innerHTML = `<div class="header-text" id="left-projects">Projects</div>
+                                 <div class="latest-text">Latest projects</div>
+                                 <p>${projects[projects.length - 1].name}</p>
+                                 <p class="newproject">+ New Project</p>`;
+    } else if(projects.length == 2) {
+        projectList.innerHTML = `<div class="header-text" id="left-projects">Projects</div>
+                                 <div class="latest-text">Latest projects</div>
+                                 <p>${projects[projects.length - 1].name}</p>
+                                 <p>${projects[projects.length - 2].name}</p>
+                                 <p class="newproject">+ New Project</p>`;
+    } else {
+        projectList.innerHTML = `<div class="header-text" id="left-projects">Projects</div>
+                                 <div class="latest-text">Latest projects</div>
+                                 <p>${projects[projects.length - 1].name}</p>
+                                 <p>${projects[projects.length - 2].name}</p>
+                                 <p>${projects[projects.length - 3].name}</p>
+                                 <p class="newproject">+ New Project</p>`;
+    }
+}
+
+
+// Clickable buttons tasks and projects that shows all tasks and all projects
+function clickableAllTasks() {
+    const allTasksBtn = document.querySelector("#left-tasks");
+    allTasksBtn.addEventListener("click", () => {
+        showCards(allCards);
+    })
+}
+function clickableAllProjects() {
+    const allProjectsBtn = document.querySelector("#left-projects");
+    allProjectsBtn.addEventListener("click", () => {
+        showCards(allProjects);
+    })
+}
+clickableAllTasks();
+clickableAllProjects();
 
 function showCards(cards) {
     const allCardsDiv = document.querySelector(".right");
@@ -133,68 +219,3 @@ function showCards(cards) {
         newBotterDiv.append(imgsDiv);
     });
 };
-
-function updateProjects() {
-    const projects = document.querySelector("#pr-select");
-    projects.innerHTML = "";
-    allProjects.forEach(pr => {
-        const option = document.createElement("option");
-        option.setAttribute("value", `${pr.name}`);
-        option.textContent = `${pr.name}`;
-        projects.appendChild(option);
-    });
-};
-
-function displayLeftTasks(tasks) {
-    const taskList = document.querySelector(".tasks");
-    if(tasks.length == 0) {
-        taskList.innerHTML = `<div class="header-text">Tasks</div>
-                              <div class="latest-text">Latest tasks</div>
-                              <p class="newtask">+ New Task</p>`;
-    } else if (tasks.length == 1) {
-        taskList.innerHTML = `<div class="header-text">Tasks</div>
-                              <div class="latest-text">Latest tasks</div>
-                              <p>${tasks[tasks.length - 1].name}</p>
-                              <p class="newtask">+ New Task</p>`;
-    } else if (tasks.length == 2) {
-        taskList.innerHTML = `<div class="header-text">Tasks</div>
-                              <div class="latest-text">Latest tasks</div>
-                              <p>${tasks[tasks.length - 1].name}</p>
-                              <p>${tasks[tasks.length - 2].name}</p>
-                              <p class="newtask">+ New Task</p>`;
-    } else {
-        taskList.innerHTML = `<div class="header-text">Tasks</div>
-                              <div class="latest-text">Latest tasks</div>
-                              <p>${tasks[tasks.length - 1].name}</p>
-                              <p>${tasks[tasks.length - 2].name}</p>
-                              <p>${tasks[tasks.length - 3].name}</p>
-                              <p class="newtask">+ New Task</p>`;
-    }
-};
-
-function displayLeftProjects(projects) {
-    const projectList = document.querySelector(".projects");
-    if(projects.length == 0) {
-        projectList.innerHTML = `<div class="header-text">Projects</div>
-                                 <div class="latest-text">Latest projects</div>
-                                 <p class="newproject">+ New Project</p>`;
-    } else if(projects.length == 1) {
-        projectList.innerHTML = `<div class="header-text">Projects</div>
-                                 <div class="latest-text">Latest projects</div>
-                                 <p>${projects[projects.length - 1].name}</p>
-                                 <p class="newproject">+ New Project</p>`;
-    } else if(projects.length == 2) {
-        projectList.innerHTML = `<div class="header-text">Projects</div>
-                                 <div class="latest-text">Latest projects</div>
-                                 <p>${projects[projects.length - 1].name}</p>
-                                 <p>${projects[projects.length - 2].name}</p>
-                                 <p class="newproject">+ New Project</p>`;
-    } else {
-        projectList.innerHTML = `<div class="header-text">Projects</div>
-                                 <div class="latest-text">Latest projects</div>
-                                 <p>${projects[projects.length - 1].name}</p>
-                                 <p>${projects[projects.length - 2].name}</p>
-                                 <p>${projects[projects.length - 3].name}</p>
-                                 <p class="newproject">+ New Project</p>`;
-    }
-}
